@@ -1,0 +1,11 @@
+(define (good-enough? cur prev)
+  (< (/ (abs (- cur prev)) prev) 0.001))
+(define (improve guess x)
+  (/ (+ (/ x (square guess)) (* 2 guess)) 3))
+(define (cube-iter guess x)
+  (if (good-enough? (improve guess x) guess)
+    guess
+    (cube-iter (improve guess x)
+      x)))
+(define (cube-root x)
+  (cube-iter 1.0 x))
