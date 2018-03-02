@@ -4,7 +4,7 @@
   (/ (+ (/ x (square guess)) (* 2 guess)) 3))
 (define (cube-iter guess x)
   (if (good-enough? (improve guess x) guess)
-    guess
+    (improve guess x)
     (cube-iter (improve guess x)
       x)))
 (define (cube-root x)
