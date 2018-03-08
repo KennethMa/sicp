@@ -1,0 +1,16 @@
+(define (cons a b)
+  (* (expt 2 a) (expt 3 b)))
+
+(define (car z)
+  (define (iter i result)
+    (if (= 0 (remainder i 2))
+        (iter (/ i 2) (+ 1 result))
+        result))
+  (iter z 0))
+
+(define (cdr z)
+  (define (iter i result)
+    (if (= 0 (remainder i 3))
+        (iter (/ i 3) (+ 1 result))
+        result))
+  (iter z 0))
