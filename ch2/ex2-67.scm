@@ -48,3 +48,7 @@
   (if (leaf? tree)
       (weight-leaf tree)
       (cadddr tree)))
+
+
+(decode sample-message sample-tree)
+; (a d a b b c a)
