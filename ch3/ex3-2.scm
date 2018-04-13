@@ -1,0 +1,7 @@
+(define (make-monitored p)
+  (let ((count 0))
+      (lambda (n)
+        (cond ((number? n) (begin (set! count (+ count 1)) (p n)))
+              ((eq? n 'how-many-calls?) count)
+              ((eq? n 'reset-count) (begin (set! count 0) count))
+              (else (error "Invalid parameter -- MAKE-MONITORED"))))))
